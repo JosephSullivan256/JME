@@ -24,6 +24,15 @@ public class GameUnit {
 		c.initialize(globalDependencies);
 	}
 	
+	public void removeContext(String id){
+		Context remove = contexts.get(id);
+		if(activeContexts.contains(remove)){
+			activeContexts.remove(remove);
+			remove.stop();
+		}
+		contexts.remove(id);
+	}
+	
 	public Context getContext(String id){
 		return contexts.get(id);
 	}
